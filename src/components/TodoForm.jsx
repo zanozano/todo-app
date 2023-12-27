@@ -5,7 +5,7 @@ const initialFormValues = {
     title: '',
     description: '',
     date: '',
-    color: 'default',
+    color: '',
 }
 
 const CustomForm = styled('form')(() => ({
@@ -19,6 +19,7 @@ const TodoForm = ({ todoAdd, todoEdit }) => {
     const [formValues, setFormValues] = useState(initialFormValues)
     const { title, description } = formValues
     const [error, setError] = useState(null)
+    const [edit, setEdit] = useState(null)
     const [successMessage, setsuccessMessage] = useState(null)
     const [open, setOpen] = useState(false);
 
@@ -46,12 +47,19 @@ const TodoForm = ({ todoAdd, todoEdit }) => {
         if (title.trim() === '') {
             setError('Title is Mandatory')
             setsuccessMessage(null)
+            setTimeout(() => {
+                setError(null)
+            }, 3000);
+
             return;
         }
 
         if (description.trim() === '') {
             setError('Description is Mandatory')
             setsuccessMessage(null)
+            setTimeout(() => {
+                setError(null)
+            }, 3000);
             return;
         }
 
@@ -65,14 +73,19 @@ const TodoForm = ({ todoAdd, todoEdit }) => {
 
         todoAdd(todoData)
 
+        if (todoEdit) {
+            setEdit('Todo Edited Successfully')
+        } else {
+            setsuccessMessage('Todo Added Successfully')
+        }
+
         setFormValues(initialFormValues)
-        setsuccessMessage('Todo Added Successfully')
 
         setTimeout(() => {
             setsuccessMessage(null);
-        }, 2000);
+            setEdit(null)
+        }, 3000);
 
-        setError(null)
         setOpen(true);
     }
 
@@ -123,6 +136,14 @@ const TodoForm = ({ todoAdd, todoEdit }) => {
                     (
                         <Alert severity="success">
                             {successMessage}
+                        </Alert>
+                    )
+                }
+                {
+                    edit &&
+                    (
+                        <Alert severity="success">
+                            {edit}
                         </Alert>
                     )
                 }

@@ -1,12 +1,12 @@
 import { Box, Button, Card, Divider, Typography } from "@mui/material"
 import { ColorSelector } from "./ColorSelector"
 
-const Todo = ({ todo, todoDelete, todoToggleCompleted, setTodoEdit }) => {
+const Todo = ({ todo, todoDelete, todoToggleCompleted, setTodoEdit, todoAdd }) => {
 
     const { title, description, date, color } = todo
 
     return (
-        <Card sx={{ padding: 3, display: 'grid', gap: 2, backgroundColor: color }}>
+        <Card sx={{ padding: 3, display: 'grid', gap: 2, backgroundColor: (theme) => theme.palette?.[color].main }}>
             <Box sx={{
                 display: 'flex',
                 justifyContent: 'space-between',
@@ -16,10 +16,16 @@ const Todo = ({ todo, todoDelete, todoToggleCompleted, setTodoEdit }) => {
                 <Typography variant="body2">
                     {date}
                 </Typography>
-                <ColorSelector setTodoEdit={setTodoEdit} />
+                <ColorSelector todoAdd={todoAdd} todo={todo} />
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Typography variant="h3">
+                <Typography
+                    sx={{
+                        overflowWrap: 'break-word',
+                        wordBreak: 'break-word',
+                    }}
+                    variant="h3"
+                >
                     {title}
                 </Typography>
                 <Button
@@ -31,7 +37,13 @@ const Todo = ({ todo, todoDelete, todoToggleCompleted, setTodoEdit }) => {
                     {todo.completed ? 'Finished' : 'Pending'}
                 </Button>
             </Box>
-            <Typography variant="body1">
+            <Typography
+                variant="body1"
+                sx={{
+                    overflowWrap: 'break-word',
+                    wordBreak: 'break-word',
+                }}
+            >
                 {description}
             </Typography>
             <Divider />

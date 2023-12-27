@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 import { useEffect } from 'react';
-import { Box, ThemeProvider } from '@mui/material';
+import { Box, CssBaseline, ThemeProvider } from '@mui/material';
 import { useMode } from './context/ModeProvider';
 import { SwitchTheme } from './components/SwitchTheme';
 
@@ -29,6 +29,7 @@ const App = () => {
   }
 
   const todoAdd = (todo) => {
+
     const existingTodo = todos.find((t) => t.id === todo.id);
 
     if (existingTodo) {
@@ -62,6 +63,7 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Box sx={{
         display: 'grid',
         gap: 4,
@@ -82,6 +84,7 @@ const App = () => {
           />
           <TodoList
             todos={todos}
+            todoAdd={todoAdd}
             todoDelete={todoDelete}
             todoToggleCompleted={todoToggleCompleted}
             setTodoEdit={setTodoEdit}

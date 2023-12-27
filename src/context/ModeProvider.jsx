@@ -32,6 +32,18 @@ export const ModeProvider = ({ children }) => {
             surface: {
                 main: isLightMode ? '#000000' : '#201e2b',
             },
+            default: {
+                main: isLightMode ? '#ffffff' : '#201e2b',
+            },
+            yellow: {
+                main: isLightMode ? '#fffdeb' : '#451f03',
+            },
+            green: {
+                main: isLightMode ? '#eafff0' : '#003119',
+            },
+            red: {
+                main: isLightMode ? '#fff2f1' : '#4a0a05',
+            },
             background: {
                 main: isLightMode ? '#fafafa' : '#141801',
             },

@@ -5,7 +5,7 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { useMode } from '../context/ModeProvider';
 
 export const SwitchTheme = () => {
-    const { isLightMode, toggleMode, theme } = useMode();
+    const { isLightMode, toggleMode } = useMode();
 
     return (
         <Button

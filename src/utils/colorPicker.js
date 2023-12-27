@@ -1,18 +1,18 @@
 export const colorPickers = [
     {
         color: 'default',
-        hex: '#f8f',
+        code: '#fafafa',
     },
     {
         color: 'yellow',
-        hex: '#fffdeb',
+        code: '#fffdeb',
     },
     {
         color: 'green',
-        hex: '#eafff0',
+        code: '#eafff0',
     },
     {
         color: 'red',
-        hex: '#fff2f1',
+        code: '#fff2f1',
     },
 ]

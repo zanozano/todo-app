@@ -3,18 +3,21 @@ import React from 'react'
 import { Selector } from './Selector'
 import { colorPickers } from '../utils/colorPicker'
 
+export const ColorSelector = ({ todoAdd, todo }) => {
 
-export const ColorSelector = ({ setTodoEdit }) => {
+    const changeBackgroundColor = (color) => {
 
-    const changeBackgroundColor = (hex) => {
-        console.log(hex)
-    }
-
+        const todoData = {
+            ...todo,
+            color: color,
+        };
+        todoAdd(todoData);
+    };
     return (
         <Box sx={{ display: 'flex', gap: 1 }}>
-            {colorPickers.map(({ color, hex }) => (
-                <IconButton key={color} onClick={() => changeBackgroundColor(hex)}>
-                    <Selector hex={hex} />
+            {colorPickers.map(({ color }) => (
+                <IconButton key={color} onClick={() => changeBackgroundColor(color)}>
+                    <Selector color={color} />
                 </IconButton>
             ))}
         </Box>
