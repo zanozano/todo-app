@@ -24,7 +24,7 @@ const Todo = ({ todo, todoDelete, todoToggleCompleted, setTodoEdit, todoAdd }) =
                         overflowWrap: 'break-word',
                         wordBreak: 'break-word',
                     }}
-                    variant="h3"
+                    variant="h4"
                 >
                     {title}
                 </Typography>
