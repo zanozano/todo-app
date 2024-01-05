@@ -76,7 +76,8 @@ const App = () => {
           sx={{
             display: 'flex',
             flexDirection: { xs: 'column', md: 'row' },
-            gap: 10
+            gap: 4,
+            padding: 1,
           }}>
           <TodoForm
             todoAdd={todoAdd}
