@@ -9,6 +9,8 @@ export const SwitchTheme = () => {
 
     return (
         <Button
+            title="Theme Mode"
+            aria-label="Theme Mode"
             onClick={toggleMode}
             variant='contained'
             disableElevation
